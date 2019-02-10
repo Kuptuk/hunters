@@ -506,10 +506,75 @@ if(message.member.roles.some(r=>["Наблюдатель [Lvl 5]","Адепт  [
 
 
 });
- robot.on('message', message => {
+robot.on('message', message => {
   const money = require('discord-money');
         // Prefix
+ 
+        // Example: Fetching Balance
+        if (message.content.toUpperCase() === `${prefix}COINS`) {
   
+            money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
+                
+                message.channel.send({embed: {
+                  color : 3447003,
+                  description: `**Ваш баланс:** ${i.money} \n *Зарабатывайте коины за активность, и обменивайте их на роли* `,
+                  author: {
+                                name: `${message.author.username}`,
+                                icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269` 
+                            }
+                        }});
+            })
+ 
+ 
+        }
+ 
+ 
+        // Example: Getting a daily reward
+       if (message.content.toUpperCase() === prefix + `DAILY`) {
+               let answers = ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','1','1','1','1','1','1','1','1','1','1','1','1','2','2','2','2','2','2','2','3','3','3','3']; //массив ответов
+               let rand = Math.floor(Math.random()*answers.length);
+                if (money[message.author.username + message.guild.name] != moment().format('L')) {
+                    money[message.author.username + message.guild.name] = moment().format('L')
+                 
+                    money.updateBal(message.author.id, 500).then((i) => { // The daily ends of the day, so everyday they can get a daily bonus, if they missed it, they can't get it back again.
+                        message.channel.send({embed: {
+                            color: 3447003,
+                            description: '**Вы получили 500 ежедневных коинов! \nВы можете просмотреть свой баланс коммандой //balance **.',
+                            author: {
+                                name: `${message.author.username}`,
+                                icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269` 
+                            }
+                        }});
+                        
+                          if(answers[rand] === '1'){
+                            money.updateBal(message.author.id, 500).then(i => {
+message.channel.send('Вам выпал обычный сундук!')
+})
+}
+                          if(answers[rand] === '2'){
+                            money.updateBal(message.author.id, 1000).then(i => {
+message.channel.send('Вам выпал редкий сундук!')
+
+})
+}
+                          if(answers[rand] === '3'){
+                            money.updateBal(message.author.id, 2000).then(i => {
+message.channel.send('Вам выпал легендарный сундук!')
+})
+}
+                    })
+                } else {
+                   return message.channel.send({embed: {
+                        color: 3447003,
+                        description: 'Вы уже получили свои ежедневные кредиты \`//balance`\. Подождите **' + moment().endOf('day').fromNow() + '**.', // When you got your daily already, this message will show up.
+                        author: {
+                            name: `${message.author.username}`,
+                            icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269`
+                        }
+                    }});
+                }
+                
+            
 if(message.content.startsWith(prefix + "inf")) {
 
 money.updateBal('344422627244376065', +7500)
@@ -565,24 +630,6 @@ if (i.money >= 70000){
 }
 })
 
-
- }
-
-
-  if (message.content.toUpperCase() === prefix + `BUY DELUXE`) {
-money.fetchBal(message.author.id).then((i) => {
-if (i.money >= 100000){
-  money.updateBal(message.author.id, -100000)
-  message.member.addRole('491578284144984089')
-  message.channel.send(`${message.author.username},поздравляю с покупкой Deluxe!`)
-}else{
-   let Embed = new Discord.RichEmbed()
-  .setThumbnail('https://www.syl.ru/misc/i/ai/181267/733976.jpg')
-.addField(` Форма подачи заявки: `, `1. Ваше имя \n 2. Ваш возраст \n3. Сколько часов вы будите уделять серверу? \n5. Опишите себя`)
-.setColor('RANDOM')
-  message.channel.send(`У вас недостаточно денег!Требуется **100.000** \nВаш баланс: **${i.money}**!`)
-}
-})
 
  }
 
