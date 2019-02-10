@@ -747,7 +747,6 @@ console.log(app.get('a.b'));
 
 
 
-robot.login(config.token);
-
+robot.login(process.env.BOT_TOKEN);
 
 
