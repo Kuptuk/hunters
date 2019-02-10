@@ -21,7 +21,8 @@
     "parse-ms": "^2.0.0",
     "permission": "^1.1.0",
     "sqlite3":"^4.0.6",
-"chalk":"^2.4.2"
+"chalk":"^2.4.2",
+"quick.db":"^7.0.0-b21"
   },
   "devDependencies": {},
   "scripts": {
