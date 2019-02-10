@@ -1,8 +1,8 @@
 {
-  "name": "pozitivchik",
+  "name": "hunters",
   "version": "1.0.0",
   "description": "bot",
-  "main": "bot.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -45,7 +45,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "MrLeonardos",
   "license": "ISC"
