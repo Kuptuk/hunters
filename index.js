@@ -104,7 +104,7 @@ const exampleEmbed = new Discord.RichEmbed()
     .setAuthor(`Информация сервера ${msg.guild.name}`)
     .addField('Основатель', '• Tigran662\n• MrLeonardos', true)
 
-     .addField('Администрация','• <@295468625240915968>\n •<@465036445984358402>', true)
+     .addField('Администрация','• <@295468625240915968>\n •<@465036445984358402>\n •<@414119169504575509>', true)
      .addField(' Создан', moment(msg.guild.createdAt).format('HH:MM DD-MM-YY',true))
      .addField('Платные роли','<@&507942537453895705> - 10.000\n <@&523799456097894411> - 15.000\n <@&482189882580664336> - 50.000\n <@&482506949141856256> - 70.000\n <@&491578284144984089> - 100.000', true)
           .addField('Количество ролей', `${msg.guild.roles.size}`,true)
