@@ -48,7 +48,7 @@ const exampleEmbed = new Discord.RichEmbed()
     .setColor(answers[rand])
     .setTitle('')
     .setThumbnail('')
-    .addField('**Пригласительная ссылка**','**Приглашайте друзей на сервер по ссылке — https://discord.gg/3HnvBhN **')
+    .addField('**Пригласительная ссылка**','**Приглашайте друзей на сервер по ссылке — https://discord.gg/7tF5E5g **')
 
    .setThumbnail('https://cdn.discordapp.com/attachments/484745571903471628/523192065270480913/2.png')
     
