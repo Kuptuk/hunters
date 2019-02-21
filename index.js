@@ -12,13 +12,11 @@ const db = require('quick.db')
 
 
 robot.on('ready', () => {
-    robot.user.setStatus('Online')
     let guild = robot.guilds.get("481777915596636170")
    robot.user.setPresence({
         game: {
-            name: `https://discord.gg/zPTaX5h\n Пользоателей: ${guild.memberCount}`,
-            type: "Online",
-            url: "https://discord.gg/zPTaX5h"
+            name: `Пользоателей: ${guild.memberCount}`,
+            type: "Online"
         }
     });
 
