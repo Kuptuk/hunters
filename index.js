@@ -15,7 +15,7 @@ robot.on('ready', () => {
     let guild = robot.guilds.get("481777915596636170")
    robot.user.setPresence({
         game: {
-            name: `Пользоателей: ${guild.memberCount}`,
+            name: `Пользоателей: ${guild.members.size}`,
             type: "Online"
         }
     });
