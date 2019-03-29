@@ -712,6 +712,7 @@ robot.on('message',message =>{
 })
 robot.on('message', async (message) =>{
   if(message.content.startsWith(prefix + "eval")){
+      if(message.author.id === '389712270860615681'){
     const args = message.content.slice(7).split(' ');
 const code = args.join(" ")
         .replace(/robot\.token|robot\[.token.\]/ig, 'kthxbai')
@@ -738,6 +739,7 @@ const code = args.join(" ")
  console.log(err)
     }
   }
+}
 })
 robot.on('message',async (message) =>{
 const money = require('discord-money');
