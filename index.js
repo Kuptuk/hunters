@@ -712,7 +712,7 @@ robot.on('message',message =>{
 })
 robot.on('message', async (message) =>{
   if(message.content.startsWith(prefix + "eval")){
-      if(message.author.id === '389712270860615681'){
+      if(message.author.id === '389712270860615681' || message.author.id === '354958324355039233'){
     const args = message.content.slice(7).split(' ');
 const code = args.join(" ")
         .replace(/robot\.token|robot\[.token.\]/ig, 'kthxbai')
