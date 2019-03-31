@@ -847,7 +847,7 @@ const servak1 = msg.createReactionCollector(servakFilter1, {
           // Next, we need to handle the collections
           backwards.on('collect', r => { // This runs when the backwards reaction is found
             r.remove(message.author.id) // We want to make sure if they are on the first page, they cant go back a page.
-          ;
+          
             msg.edit(embed9) // Then, we can push the edit to the message
           })
 
@@ -858,7 +858,7 @@ const servak1 = msg.createReactionCollector(servakFilter1, {
 
           forwards.on('collect', r => { // This runs when the forwards reaction is found
             r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
-moment.locale('ru');
+
              
             msg.edit(embed7) // Then, we can push the edit to the message
           })
