@@ -473,7 +473,7 @@ wUser.send(wUserEmbed)
 if(message.content.startsWith(prefix + "clancreate")){
 
 let clan = args.slice(1).toString()
-if!clan) return message.channel.send('Укажите название клана')
+if(!clan) return message.channel.send('Укажите название клана')
   let color = args.slice(2).toString()  
   if(!color) return message.channel.send('Укажите цвет!')
 let answers = ["#a1cc2b","#7cf7af","#ffde59","#88c5f7"]; //массив ответов
