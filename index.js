@@ -579,7 +579,7 @@ money.updateBal('344422627244376065', +7500)
 
  }
 
- if (message.content === prefix + `buy premium`) {
+ if (message.content === `//buy premium`) {
 
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 15000){
@@ -593,7 +593,7 @@ if (i.money >= 15000){
 })
  }
 
- if (message.content === prefix + `buy vip`) {
+ if (message.content === `//buy vip`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 15000){
   money.updateBal(message.author.id, -15000)
@@ -606,7 +606,7 @@ if (i.money >= 15000){
 }
 
 
- if (message.content === prefix + `buy elite`) {
+ if (message.content === `//buy elite`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 50000){
   money.updateBal(message.author.id, -50000)
@@ -617,7 +617,7 @@ if (i.money >= 50000){
 }
 })
 }
- if (message.content === prefix + `buy luxury`) {
+ if (message.content ===  `//buy luxury`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 70000){
   money.updateBal(message.author.id, -70000)
