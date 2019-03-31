@@ -197,11 +197,17 @@ if (msg.content.startsWith("//donate")) {
 let rand = Math.floor(Math.random()*answers.length);
 let em = new Discord.RichEmbed()
 .setTitle('Реквизиты для пожертвований')
-.addField(':WebM: **WebMoney**','**Z101183426891**')
-.addField(':QiWi: **Qiwi**','**+998915287885**')
+.addField('<:WebM:561559501002768384> **WebMoney**','**Z101183426891**')
+.addField('<:QiWi:561559491150348288> **Qiwi**','**+998915287885**')
 msg.channel.send(em)
 }
 });
+
+
+
+
+
+
 robot.on('message', msg => {
 
 
