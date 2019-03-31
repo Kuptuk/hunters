@@ -473,6 +473,9 @@ wUser.send(wUserEmbed)
 if(message.content.startsWith(prefix + "clancreate")){
 
 let clan = args.slice(1).toString()
+if!clan) return message.channel.send('Укажите название клана')
+  let color = args.slice(2).toString()  
+  if(!color) return message.channel.send('Укажите цвет!')
 let answers = ["#a1cc2b","#7cf7af","#ffde59","#88c5f7"]; //массив ответов
 let rand = Math.floor(Math.random()*answers.length);
 
@@ -480,7 +483,7 @@ let rand = Math.floor(Math.random()*answers.length);
 if(message.member.roles.some(r=>["Наблюдатель [Lvl 5]","Адепт  [Lvl 10]","Активный [Lvl 15]","Начинающий писатель [Lvl 20]","Оракул [Lvl 30]","Магистр [Lvl 40]","Мастер [Lvl 50]","Чернокнижник [Lvl 60]"].includes(r.name)) ) {
  message.guild.createRole({
         name: `[Клан] ${clan}`,
-        color: answers[rand],
+        color: color,
         position: message.guild.roles.find("name","[Clan Leader]").position -1
 }).then(r =>{
  
