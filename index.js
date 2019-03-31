@@ -792,6 +792,144 @@ console.log(app.cache.a.b);  //=> 'c'
 console.log(app.get('a'));   //=> { b: 'c' }
 console.log(app.get('a.b'));
 
+robot.on('message',async(message) =>{
+let client = robot
+
+
+
+let msg = message
+if(message.content.startsWith(prefix + 'shop')){
+    const embed9 = new Discord.RichEmbed() 
+    .addField('**👑 Vip**','**После покупки вы получите:\n• Роль Vip;\n• Скрытый текстовый Vip канал;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• 10 бонусных коинов //daily;\nСтоимость: 8.000 :coins: **',true)
+    const embed8 = new Discord.RichEmbed()
+  .addField('**👑 Premium**','**После покупки вы получите:\n• Роль Premium;\n• Скрытый текстовый Premium + Vip канал;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• Три уникальных цвета роли;\n• 40 бонусных коинов //daily;\nСтоимость: 12.000 :coins: **',true)
+   const embed7 = new Discord.RichEmbed()
+   .addField('**👑 Elite**','**После покупки вы получите:\n• Роль Elite;\n• Скрытый текстовый Elite + Premium канал;\n•Отображение вашей роли выше, чем у обычных пользователей;\n• Пять уникальных цвета роли;\n• 80 бонусных коинов //daily;\nСтоимость: 45.000 :coins: **',true)
+    const embed6 = new Discird.RichEmbed()
+    .addField('**👑 Luxury**','**После покупки вы получите:\n• Роль Luxury;\n• Скрытый текстовый Luxury + Elite канал;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• Восемь уникальных цвета роли;\n• 130 бонусных коинов //daily;\n• Доступ к заполненым голосовым каналам;\nСтоимость: 65.000 :coins: **',true)
+    const embed5 = new Discord.RichEmbed()
+   .addField('**👑 Deluxe**','**После покупки вы получите:\n• Роль Deluxe;\n• Доступ ко всем скрытым каналам;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• Разноцветная роль;\n• 180 бонусных коинов //daily;\n• Доступ к заполненым голосовым каналам;\n• Доступ к логам сервера;\nСтоимость: 90.000 :coins: ** ',true) 
+    
+    // Define a new embed, if you are on the `stable` branch it will be new Discord.RichEmbed()
+let serverC = client.guilds.get(`481777915596636170`)
+moment.locale('ru');
+                  embed.setDescription(`**Для выбора привелегии нажмите на реакции под этим сообщением**`)
+    message.channel.send(embed).then(msg => { // Now, we will send the embed and pass the new msg object
+
+      msg.react('1⃣').then(r => { // We need to make sure we start the first two reactions, this is the first one
+        msg.react('2⃣').then(r => {
+          msg.react('3⃣').then(r => { // This is the second one, it will run this one after the first one
+            msg.react('4⃣').then(r => {
+              msg.react('5⃣')
+          // Filters - These make sure the variables are correct before running a part of code
+          const backwardsFilter = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
+          const stopFiler = (reaction, user) => reaction.emoji.name === '2⃣' && user.id === message.author.id;
+          const forwardsFilter = (reaction, user) => reaction.emoji.name === '3⃣' && user.id === message.author.id; // We need two filters, one for forwards and one for backwards
+          const servakFilter = (reaction, user) => reaction.emoji.name === '4⃣' && user.id === message.author.id;
+          
+const servakFilter1 = (reaction, user) => reaction.emoji.name === '5⃣' && user.id === message.author.id;
+          const backwards = msg.createReactionCollector(backwardsFilter, {
+            time: 60000
+          }); // This creates the collector, which has the filter passed through it. The time is in milliseconds so you can change that for however you want the user to be able to react
+
+          const stops = msg.createReactionCollector(stopFiler, {
+            time: 120000
+          })
+
+          const forwards = msg.createReactionCollector(forwardsFilter, {
+            time: 60000
+          });
+          const servak = msg.createReactionCollector(servakFilter, {
+            time: 60000
+          });
+const servak1 = msg.createReactionCollector(servakFilter1, {
+            time: 60000
+          }); // This is the second collector, collecting for the forwardsFilter
+          // Next, we need to handle the collections
+          backwards.on('collect', r => { // This runs when the backwards reaction is found
+            r.remove(message.author.id) // We want to make sure if they are on the first page, they cant go back a page.
+          
+let serverA = client.guilds.get(`283724755599753217`)
+moment.locale('ru');
+                  embed.setDescription(`ИНФОРМАЦИЯ О СЕРВЕРЕ: \n\n**Создатель: ** ${serverA.owner.user.tag}\n\n**ID сервера:** ${serverA.id}\n\n**Сделан:**${moment(serverA.createdAt).format(`HH:MM DD-MM-YYYY`)}\n\n**Уровень проверки:**${serverA.verificationLevel}\n\n**Ролей:**${serverA.roles.size}\n\n**Каналов:**[ ${serverA.channels.filter(c=> c.type === "text").size} текстовых и  ${serverA.channels.filter(c=>c.type ==="voice").size} голосовых]\n\n**Участников:**[ Всего - ${serverA.memberCount} / Онлайн - ${serverA.presences.size} ]\n\n **Invite:** https://discord.gg/AnHdvm9`);
+                  embed.setColor("#2818d6");
+                  embed.setThumbnail(serverA.iconURL);
+                  embed.setAuthor(`${serverA.name}`,`${serverA.iconURL}`);
+            msg.edit(embed9) // Then, we can push the edit to the message
+          })
+
+          stops.on('collect', r => {
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
+            
+let serverB = client.guilds.get(`492572377838780418`)
+moment.locale('ru');
+                  embed.setDescription(`ИНФОРМАЦИЯ О СЕРВЕРЕ: \n\n**Создатель: ** ${serverB.owner.user.tag}\n\n**ID сервера:** ${serverB.id}\n\n**Сделан:**${moment(serverB.createdAt).format(`HH:MM DD-MM-YYYY`)}\n\n**Уровень проверки:**${serverB.verificationLevel}\n\n**Ролей:**${serverB.roles.size}\n\n**Каналов:**[ ${serverB.channels.filter(c=> c.type === "text").size} текстовых и  ${serverB.channels.filter(c=>c.type ==="voice").size} голосовых]\n\n**Участников:**[ Всего - ${serverB.memberCount} / Онлайн - ${serverB.presences.size} ]\n\n**Invite:** https://discord.gg/cRwZ59c`);
+                  embed.setColor("#2818d6");
+                  embed.setThumbnail(serverB.iconURL);
+                  embed.setAuthor(`${serverB.name}`,`${serverB.iconURL}`);
+                   msg.edit(embed8)
+          })
+
+          forwards.on('collect', r => { // This runs when the forwards reaction is found
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
+
+let serverD = client.guilds.get(`481777915596636170`)
+moment.locale('ru');
+                  embed.setDescription(`ИНФОРМАЦИЯ О СЕРВЕРЕ: \n\n**Создатель: ** ${serverD.owner.user.tag}\n\n**ID сервера:** ${serverD.id}\n\n**Сделан:**${moment(serverD.createdAt).format(`HH:MM DD-MM-YYYY`)}\n\n**Уровень проверки:**${serverD.verificationLevel}\n\n**Ролей:**${serverD.roles.size}\n\n**Каналов:**[ ${serverD.channels.filter(c=> c.type === "text").size} текстовых и  ${serverD.channels.filter(c=>c.type ==="voice").size} голосовых]\n\n**Участников:**[ Всего - ${serverD.memberCount} / Онлайн - ${serverD.presences.size} ]\n\n**Invite:** https://discord.gg/9gvhQJU`);
+                  embed.setColor("#2818d6");
+                  embed.setThumbnail(serverD.iconURL);
+                  embed.setAuthor(`${serverD.name}`,`${serverD.iconURL}`);
+            msg.edit(embed7) // Then, we can push the edit to the message
+          })
+          servak.on('collect', r => { // This runs when the forwards reaction is found
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
+
+let serverI = client.guilds.get(`508234655271485452`)
+moment.locale('ru');
+                  embed.setDescription(`ИНФОРМАЦИЯ О СЕРВЕРЕ: \n\n**Создатель: ** ${serverI.owner.user.tag}\n\n**ID сервера:** ${serverI.id}\n\n**Сделан:**${moment(serverI.createdAt).format(`HH:MM DD-MM-YYYY`)}\n\n**Уровень проверки:**${serverI.verificationLevel}\n\n**Ролей:**${serverI.roles.size}\n\n**Каналов:**[ ${serverI.channels.filter(c=> c.type === "text").size} текстовых и  ${serverI.channels.filter(c=>c.type ==="voice").size} голосовых]\n\n**Участников:**[ Всего - ${serverI.memberCount} / Онлайн - ${serverI.presences.size} ]\n\n**Invite:** https://discord.gg/9Tm8vgU`);
+                  embed.setColor("#2818d6");
+                  embed.setThumbnail(serverI.iconURL);
+                  embed.setAuthor(`${serverI.name}`,`${serverI.iconURL}`);
+            msg.edit(embed6) // Then, we can push the edit to the message
+          })
+servak1.on('collect', r => { // This runs when the forwards reaction is found
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
+
+let serverI = client.guilds.get(`263528260028203009`)
+moment.locale('ru');
+                  embed.setDescription(`ИНФОРМАЦИЯ О СЕРВЕРЕ: \n\n**Создатель: ** ${serverI.owner.user.tag}\n\n**ID сервера:** ${serverI.id}\n\n**Сделан:**${moment(serverI.createdAt).format(`HH:MM DD-MM-YYYY`)}\n\n**Уровень проверки:**${serverI.verificationLevel}\n\n**Ролей:**${serverI.roles.size}\n\n**Каналов:**[ ${serverI.channels.filter(c=> c.type === "text").size} текстовых и  ${serverI.channels.filter(c=>c.type ==="voice").size} голосовых]\n\n**Участников:**[ Всего - ${serverI.memberCount} / Онлайн - ${serverI.presences.size} ]\n\n**Invite:** https://discord.gg/A2WgubJ`);
+                  embed.setColor("#2818d6");
+                  embed.setThumbnail(serverI.iconURL);
+                  embed.setAuthor(`${serverI.name}`,`${serverI.iconURL}`);
+            msg.edit(embed5) // Then, we can push the edit to the message
+          })
+
+
+})
+        }).catch(error => {
+          console.log(error)
+        })
+      }).catch(error => {
+        console.log(error)
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+}).catch(error => {
+      console.log(error)
+    })
+}).catch(error => {
+      console.log(error)
+    })
+
+
+
+
+}
+
+
+})
+
 
 
 robot.login(process.env.BOT_TOKEN);
