@@ -200,7 +200,7 @@ let em = new Discord.RichEmbed()
 .addField(':WebM: **WebMoney**','**Z101183426891**')
 .addField(':QiWi: **Qiwi**','**+998915287885**')
 msg.channel.send(em)
-
+}
 });
 robot.on('message', msg => {
 
