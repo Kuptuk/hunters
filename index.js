@@ -195,13 +195,11 @@ robot.on('message',msg =>{
 if (msg.content.startsWith("//donate")) {
   let answers = ['#FF0000','#C71585','#FF4500','#FFFF00','#4B0082','#00FF00','#00FFFF','#000080','#000000','#00FF00','#006400','#1E90FF','#FF4500','#FFFF00','#800080']; //массив ответов
 let rand = Math.floor(Math.random()*answers.length);
-const exampleEmbed = new Discord.RichEmbed()
-    .setColor(answers[rand])
-    .setAuthor('Донат услуги сервера Hunters:') 
-    .setThumbnail('https://cdn.discordapp.com/attachments/484745571903471628/523418838541402112/time-in-png-3.png')
-    .addField('Список услуг:','Поддержи наш сервер, приобрети одну из наших услуг')
-    msg.channel.send(exampleEmbed);
-}
+let em = new Discord.RichEmbed()
+.setTitle('Реквизиты для пожертвований')
+.addField(':WebM: **WebMoney**','**Z101183426891**')
+.addField(':QiWi: **Qiwi**','**+998915287885**')
+msg.channel.send(em)
 
 });
 robot.on('message', msg => {
