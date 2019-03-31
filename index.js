@@ -481,11 +481,11 @@ if(message.member.roles.some(r=>["Наблюдатель [Lvl 5]","Адепт  [
  message.guild.createRole({
         name: `[Клан] ${clan}`,
         color: answers[rand],
-        position: 68
-})
+        position: ${message.guild.roles.find("name","[Clan Leader]").position}-1
+}).then(r =>{
  
- message.member.addRole(message.guild.roles.find(c => c.name === `[Клан] ${clan}`))
-
+ message.member.addRole(r)
+     message.member.addRole(message.guild.roles.find("name","[Clan Leader]").id)
  let clanEmbed = new Discord.RichEmbed()
 
 .setAuthor(`Клан успешно создан`, `https://banner2.kisspng.com/20180403/lxq/kisspng-check-mark-emoji-computer-icons-emoticon-clip-art-tick-5ac3fed4b9d0a9.8582330115227941967611.jpg`)
@@ -495,7 +495,7 @@ if(message.member.roles.some(r=>["Наблюдатель [Lvl 5]","Адепт  [
 
  message.channel.send(clanEmbed)
 
-
+})
 
 } else {
   message.channel.send('Вы не можете создать клан!')
@@ -579,7 +579,7 @@ money.updateBal('344422627244376065', +7500)
 
  }
 
- if (message.content.toUpperCase() === prefix + `BUY PREMIUM`) {
+ if (message.content === prefix + `buy premium`) {
 
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 15000){
@@ -593,7 +593,7 @@ if (i.money >= 15000){
 })
  }
 
- if (message.content.toUpperCase() === prefix + `BUY VIP`) {
+ if (message.content === prefix + `buy vip`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 15000){
   money.updateBal(message.author.id, -15000)
@@ -606,7 +606,7 @@ if (i.money >= 15000){
 }
 
 
- if (message.content.toUpperCase() === prefix + `BUY ELITE`) {
+ if (message.content === prefix + `buy elite`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 50000){
   money.updateBal(message.author.id, -50000)
@@ -617,7 +617,7 @@ if (i.money >= 50000){
 }
 })
 }
- if (message.content.toUpperCase() === prefix + `BUY LUXURY`) {
+ if (message.content === prefix + `buy luxury`) {
 money.fetchBal(message.author.id).then((i) => {
 if (i.money >= 70000){
   money.updateBal(message.author.id, -70000)
