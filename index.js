@@ -481,7 +481,7 @@ if(message.member.roles.some(r=>["Наблюдатель [Lvl 5]","Адепт  [
  message.guild.createRole({
         name: `[Клан] ${clan}`,
         color: answers[rand],
-        position: ${message.guild.roles.find("name","[Clan Leader]").position}-1
+        position: message.guild.roles.find("name","[Clan Leader]").position -1
 }).then(r =>{
  
  message.member.addRole(r)
