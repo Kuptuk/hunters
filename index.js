@@ -918,9 +918,7 @@ moment.locale('ru');
 }).catch(error => {
       console.log(error)
     })
-}).catch(error => {
-      console.log(error)
-    })
+})
 
 
 
