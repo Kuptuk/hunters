@@ -824,7 +824,7 @@ if(message.content.startsWith(prefix + 'shop')){
     const embed5 = new Discord.RichEmbed()
     .setTitle("Магазин сервера Hunters | Обмен валюты.")
    .addField('**👑 Deluxe**','**После покупки вы получите:\n• Роль Deluxe;\n• Доступ ко всем скрытым каналам;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• Разноцветная роль;\n• 180 бонусных коинов //daily;\n• Доступ к заполненым голосовым каналам;\n• Доступ к логам сервера;\nСтоимость: 90.000 <:coins:561811790002913290> ** ',true) 
-const embed6 = new Discord.RichEmbed()
+const embed4 = new Discord.RichEmbed()
     .setTitle("Магазин сервера Hunters | Обмен валюты.")    
   .addField('**🔰 Личный клан**','**После покупки вы получите:\n• Роль <@&561777651472269312>(Только для купившего)\n• Возможность создать клановую комнату\n• Отображение клана в листе среди ролей.\n\nКоманда для покупки //clancreate <название> <цвет> \nСтоимость: 6000 <:coins:563357051053408286>**')
 
@@ -903,7 +903,7 @@ servak1.on('collect', r => { // This runs when the forwards reaction is found
 servak2.on('collect', r => { // This runs when the forwards reaction is found
             r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
 
-          msg.edit(embed6) // Then, we can push the edit to the message
+          msg.edit(embed4) // Then, we can push the edit to the message
           })
 
 })
