@@ -875,7 +875,7 @@ const servak1 = msg.createReactionCollector(servakFilter1, {
        const servak2 = msg.createReactionCollector(servakFilter2, {
             time: 60000
           });   
-const servak3 = msg.createReactionCollector(servakFilter2, {
+const servak3 = msg.createReactionCollector(servakFilter3, {
             time: 60000
           })        
                   // This is the second collector, collecting for the forwardsFilter
