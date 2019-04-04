@@ -840,7 +840,7 @@ let embed = new Discord.RichEmbed()
           msg.react('3⃣').then(r => { // This is the second one, it will run this one after the first one
             msg.react('4⃣').then(r => {
               msg.react('5⃣').then(r => {
-                msg.react('󾠳')
+                msg.react('6⃣')
           // Filters - These make sure the variables are correct before running a part of code
           const backwardsFilter = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
           const stopFiler = (reaction, user) => reaction.emoji.name === '2⃣' && user.id === message.author.id;
@@ -849,7 +849,7 @@ let embed = new Discord.RichEmbed()
 
                
 const servakFilter1 = (reaction, user) => reaction.emoji.name === '5⃣' && user.id === message.author.id;
-      const servakFilter2 = (reaction, user) => reaction.emoji.name === '󾠳' && user.id === message.author.id
+      const servakFilter2 = (reaction, user) => reaction.emoji.name === '6⃣' && user.id === message.author.id
                   const backwards = msg.createReactionCollector(backwardsFilter, {
             time: 60000
           }); // This creates the collector, which has the filter passed through it. The time is in milliseconds so you can change that for however you want the user to be able to react
