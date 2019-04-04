@@ -827,7 +827,9 @@ if(message.content.startsWith(prefix + 'shop')){
 const embed4 = new Discord.RichEmbed()
     .setTitle("Магазин сервера Hunters | Обмен валюты.")    
   .addField('**🔰 Личный клан**','**После покупки вы получите:\n• Роль <@&561777651472269312>(Только для купившего)\n• Возможность создать клановую комнату\n• Отображение клана в листе среди ролей.\n\nКоманда для покупки //clancreate <название> <цвет> \nСтоимость: 6000 <:coins:563357051053408286>**')
-
+const embed3 = new Discord.RichEmbed()
+.setTitle('Магазин сервера Hunters| Обмен валюты')
+.addField('**🚩 Личная роль**','**После покупки вы получите:\n• Возможность выбрать цвет и название роли\n• //rolecreate <HEX-цвет> <Название роли>\nСтоимость:  160.000 <:coins:563357051053408286> **')
     
     // Define a new embed, if you are on the `stable` branch it will be new Discord.RichEmbed()
 let embed = new Discord.RichEmbed()
@@ -840,7 +842,8 @@ let embed = new Discord.RichEmbed()
           msg.react('3⃣').then(r => { // This is the second one, it will run this one after the first one
             msg.react('4⃣').then(r => {
               msg.react('5⃣').then(r => {
-                msg.react('6⃣')
+                msg.react('6⃣').then(r => {
+                   msg.react('7⃣')
           // Filters - These make sure the variables are correct before running a part of code
           const backwardsFilter = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
           const stopFiler = (reaction, user) => reaction.emoji.name === '2⃣' && user.id === message.author.id;
@@ -850,6 +853,7 @@ let embed = new Discord.RichEmbed()
                
 const servakFilter1 = (reaction, user) => reaction.emoji.name === '5⃣' && user.id === message.author.id;
       const servakFilter2 = (reaction, user) => reaction.emoji.name === '6⃣' && user.id === message.author.id
+const servakFilter3 = (reaction, user) => reaction.emoji.name === '7⃣' && user.id === message.author.id
                   const backwards = msg.createReactionCollector(backwardsFilter, {
             time: 60000
           }); // This creates the collector, which has the filter passed through it. The time is in milliseconds so you can change that for however you want the user to be able to react
@@ -870,7 +874,10 @@ const servak1 = msg.createReactionCollector(servakFilter1, {
                   
        const servak2 = msg.createReactionCollector(servakFilter2, {
             time: 60000
-          });           
+          });   
+const servak3 = msg.createReactionCollector(servakFilter2, {
+            time: 60000
+          })        
                   // This is the second collector, collecting for the forwardsFilter
           // Next, we need to handle the collections
           backwards.on('collect', r => { // This runs when the backwards reaction is found
@@ -905,6 +912,11 @@ servak2.on('collect', r => { // This runs when the forwards reaction is found
 
           msg.edit(embed4) // Then, we can push the edit to the message
           })
+servak3.on('collect', r => { // This runs when the forwards reaction is found
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
+
+          msg.edit(embed3) // Then, we can push the edit to the message
+          })
 
 })
         }).catch(error => {
@@ -922,13 +934,17 @@ servak2.on('collect', r => { // This runs when the forwards reaction is found
 }).catch(error => {
       console.log(error)
     })
-
+}).catch(error => {
+      console.log(error)
+    })
 
 
 }
 
 
 })
+
+
 
 
 
