@@ -322,7 +322,7 @@ robot.on('guildMemberAdd', member => {
       .setTitle('Добро пожаловать на сервер Hunters!')
       .setAuthor(`${member.user.username}`,`${member.user.avatarURL}`)
       .setDescription(`Вас пригласил ${(invite.inviter) ? invite.inviter : 'Не удалось определить пригласившего'}`)
-    robot.guilds.get(serverID).channels.get('481779483767078923').send(exampleEmbed);
+    robot.guilds.get(serverID).channels.get('561924294410502164').send(exampleEmbed);
   });
 });
  robot.on("message", msg => {
@@ -522,7 +522,7 @@ robot.on('message', message => {
                 
                 message.channel.send({embed: {
                   color : 3447003,
-                  description: `**Ваш баланс:** ${i.money} \n *Зарабатывайте коины за активность, и обменивайте их на роли* `,
+                  description: `**Ваш баланс:** ${i.money} \n *Зарабатывайте <:coins:563357051053408286> за активность, и обменивайте их на роли* `,
                   author: {
                                 name: `${message.author.username}`,
                                 icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269` 
@@ -541,10 +541,10 @@ robot.on('message', message => {
                 if (money[message.author.username + message.guild.name] != moment().format('L')) {
                     money[message.author.username + message.guild.name] = moment().format('L')
                  
-                    money.updateBal(message.author.id, 500).then((i) => { // The daily ends of the day, so everyday they can get a daily bonus, if they missed it, they can't get it back again.
+                    money.updateBal(message.author.id, 200).then((i) => { // The daily ends of the day, so everyday they can get a daily bonus, if they missed it, they can't get it back again.
                         message.channel.send({embed: {
                             color: 3447003,
-                            description: '**Вы получили 500 ежедневных коинов! \nВы можете просмотреть свой баланс коммандой //balance **.',
+                            description: '**Вы получили 200 ежедневных <:coins:563357051053408286>! \nВы можете просмотреть свой баланс коммандой //balance **.',
                             author: {
                                 name: `${message.author.username}`,
                                 icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269` 
@@ -571,7 +571,7 @@ message.channel.send('Вам выпал легендарный сундук!')
                 } else {
                    return message.channel.send({embed: {
                         color: 3447003,
-                        description: 'Вы уже получили свои ежедневные кредиты \`//balance`\. Подождите **' + moment().endOf('day').fromNow() + '**.', // When you got your daily already, this message will show up.
+                        description: 'Вы уже получили свои ежедневные <:coins:563357051053408286> \`//balance`\. Подождите **' + moment().endOf('day').fromNow() + '**.', // When you got your daily already, this message will show up.
                         author: {
                             name: `${message.author.username}`,
                             icon_url: `https://media.discordapp.net/attachments/484745571903471628/524252526451884043/2b9801_3b99d53b24c9413282ed9ba2c6cabeaa.png?width=269&height=269`
@@ -595,7 +595,7 @@ if (i.money >= 15000){
   message.member.addRole('523799456097894411')
   message.channel.send(`${message.author.username},поздравляю с покупкой Premium!`)
 }else{
-  message.channel.send(`У вас недостаточно денег!Требуется **30,000** \nВаш баланс: **${i.money}**!`)
+  message.channel.send(`У вас недостаточно <:coins:563357051053408286>!Требуется **30,000** \nВаш баланс: **${i.money}** <:coins:563357051053408286>!`)
 }
 })
  }
@@ -607,7 +607,7 @@ if (i.money >= 15000){
   message.member.addRole('507942537453895705')
   message.channel.send(`${message.author.username},поздравляю с покупкой Vip!`)
 }else{
-  message.channel.send(`У вас недостаточно денег!Требуется **15,000** \nВаш баланс: **${i.money}**!`)
+  message.channel.send(`У вас недостаточно <:coins:563357051053408286>!Требуется **15,000** \nВаш баланс: **${i.money}** <:coins:563357051053408286>!`)
 }
 })
 }
@@ -620,7 +620,7 @@ if (i.money >= 50000){
   message.member.addRole('482189882580664336')
   message.channel.send(`${message.author.username},поздравляю с покупкой Elite!`)
 }else{
-  message.channel.send(`У вас недостаточно денег!Требуется **50.000** \nВаш баланс: **${i.money}**!`)
+  message.channel.send(`У вас недостаточно <:coins:563357051053408286>!Требуется **50.000** \nВаш баланс: **${i.money}** <:coins:563357051053408286>!`)
 }
 })
 }
@@ -631,7 +631,7 @@ if (i.money >= 70000){
   message.member.addRole('482506949141856256')
   message.channel.send(`${message.author.username},поздравляю с покупкой Luxury!`)
 }else{
-  message.channel.send(`У вас недостаточно денег!Требуется **70.000** \nВаш баланс: **${i.money}**!`)
+  message.channel.send(`У вас недостаточно <:coins:563357051053408286>!Требуется **70.000** \nВаш баланс: **${i.money}**<:coins:563357051053408286>!`)
 }
 })
 
@@ -650,7 +650,7 @@ let baluser = message.mentions.members.first();
 if(!baluser){
 let embed3 = new Discord.RichEmbed()
 .setAuthor(message.author.username)
-.setDescription(`**Ваш баланс состовлят:** ***${i.money}*** \n *Зарабатывайте коины за активность, и обменивайте их на роли*`)
+.setDescription(`**Ваш баланс состовлят:** ***${i.money}*** \n *Зарабатывайте <:coins:563357051053408286> за активность, и обменивайте их на роли*`)
 
 message.channel.send(embed3)
 }
@@ -660,7 +660,7 @@ if(!baluser) return
 money.fetchBal(baluser.id).then((b) => {
 let embed2 = new Discord.RichEmbed()
 .setAuthor(baluser.user.username)
-.setDescription(`**Баланс состовляет:** ***${b.money}*** \n *Зарабатывайте коины за активность, и обменивайте их на роли*`)
+.setDescription(`**Баланс состовляет:** ***${b.money}*** \n *Зарабатывайте <:coins:563357051053408286> за активность, и обменивайте их на роли*`)
 .setThumbnail()
  message.channel.send(embed2)
  })
@@ -676,11 +676,11 @@ const args = message.content.slice(prefix.length).split(' ');
 let monc = args[2]
 let payuser = message.mentions.members.first();
 if(!payuser) return message.channel.send("Вы не указали пользователя!")
-    if(payuser.id === message.author.id) return message.channel.send('Вы не можете передать самому себе коины!')
-  if(monc <= 0) return message.channel.send('Вы не можете передать отрицательное количество коинов!')
+    if(payuser.id === message.author.id) return message.channel.send('Вы не можете передать самому себе <:coins:563357051053408286>!')
+  if(monc <= 0) return message.channel.send('Вы не можете передать отрицательное количество <:coins:563357051053408286>!')
 money.updateBal(message.author.id, -monc)
 money.updateBal(payuser.id, monc)
-message.channel.send(`Вы успешно передали игроку ${payuser} ${monc}`)
+message.channel.send(`Вы успешно передали игроку ${payuser} ${monc} <:coins:563357051053408286>`)
 
 }
 
@@ -759,8 +759,8 @@ if(!payuser) return message.channel.send("Вы не указали пользо�
 
 money.updateBal(payuser.id , monc)
 if(monc >= 0){
-message.channel.send(`Вы выдали пользователю ${payuser} ${monc} коинов!`)}
-if(monc < 0){message.channel.send(`Вы забрали у пользователя ${payuser} ${monc} коинов!`)}
+message.channel.send(`Вы выдали пользователю ${payuser} ${monc} <:coins:563357051053408286>!`)}
+if(monc < 0){message.channel.send(`Вы забрали у пользователя ${payuser} ${monc} <:coins:563357051053408286>!`)}
 }else{
   message.channel.send('Вы не являетесь пользователем 𝓜𝓻𝓛𝓮𝓸𝓷𝓪𝓻𝓭𝓸𝓼!')
 }
