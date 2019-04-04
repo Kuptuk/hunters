@@ -824,6 +824,10 @@ if(message.content.startsWith(prefix + 'shop')){
     const embed5 = new Discord.RichEmbed()
     .setTitle("Магазин сервера Hunters | Обмен валюты.")
    .addField('**👑 Deluxe**','**После покупки вы получите:\n• Роль Deluxe;\n• Доступ ко всем скрытым каналам;\n• Отображение вашей роли выше, чем у обычных пользователей;\n• Разноцветная роль;\n• 180 бонусных коинов //daily;\n• Доступ к заполненым голосовым каналам;\n• Доступ к логам сервера;\nСтоимость: 90.000 <:coins:561811790002913290> ** ',true) 
+const embed6 = new Discord.RichEmbed()
+    .setTitle("Магазин сервера Hunters | Обмен валюты.")    
+  .addField('**🔰 Личный клан**','**После покупки вы получите:\n• Роль <@&561777651472269312>(Только для купившего)\n• Возможность создать клановую комнату\n• Отображение клана в листе среди ролей.\n\nКоманда для покупки //clancreate <название> <цвет> \nСтоимость: 6000 <:coins:563357051053408286>**')
+
     
     // Define a new embed, if you are on the `stable` branch it will be new Discord.RichEmbed()
 let embed = new Discord.RichEmbed()
@@ -835,15 +839,18 @@ let embed = new Discord.RichEmbed()
         msg.react('2⃣').then(r => {
           msg.react('3⃣').then(r => { // This is the second one, it will run this one after the first one
             msg.react('4⃣').then(r => {
-              msg.react('5⃣')
+              msg.react('5⃣').then(r => {
+                msg.react('󾠳')
           // Filters - These make sure the variables are correct before running a part of code
           const backwardsFilter = (reaction, user) => reaction.emoji.name === '1⃣' && user.id === message.author.id;
           const stopFiler = (reaction, user) => reaction.emoji.name === '2⃣' && user.id === message.author.id;
           const forwardsFilter = (reaction, user) => reaction.emoji.name === '3⃣' && user.id === message.author.id; // We need two filters, one for forwards and one for backwards
           const servakFilter = (reaction, user) => reaction.emoji.name === '4⃣' && user.id === message.author.id;
-          
+
+               
 const servakFilter1 = (reaction, user) => reaction.emoji.name === '5⃣' && user.id === message.author.id;
-          const backwards = msg.createReactionCollector(backwardsFilter, {
+      const servakFilter2 = (reaction, user) => reaction.emoji.name === '󾠳' && user.id === message.author.id
+                  const backwards = msg.createReactionCollector(backwardsFilter, {
             time: 60000
           }); // This creates the collector, which has the filter passed through it. The time is in milliseconds so you can change that for however you want the user to be able to react
 
@@ -859,7 +866,12 @@ const servakFilter1 = (reaction, user) => reaction.emoji.name === '5⃣' && user
           });
 const servak1 = msg.createReactionCollector(servakFilter1, {
             time: 60000
-          }); // This is the second collector, collecting for the forwardsFilter
+     });
+                  
+       const servak2 = msg.createReactionCollector(servakFilter2, {
+            time: 60000
+          });           
+                  // This is the second collector, collecting for the forwardsFilter
           // Next, we need to handle the collections
           backwards.on('collect', r => { // This runs when the backwards reaction is found
             r.remove(message.author.id) // We want to make sure if they are on the first page, they cant go back a page.
@@ -888,7 +900,11 @@ servak1.on('collect', r => { // This runs when the forwards reaction is found
 
           msg.edit(embed5) // Then, we can push the edit to the message
           })
+servak2.on('collect', r => { // This runs when the forwards reaction is found
+            r.remove(message.author.id) // We can use copy and paste since it is basically the same thing, although now it checks if the page is currently on the highest possible, so it can't go any higher.
 
+          msg.edit(embed6) // Then, we can push the edit to the message
+          })
 
 })
         }).catch(error => {
@@ -903,8 +919,9 @@ servak1.on('collect', r => { // This runs when the forwards reaction is found
 }).catch(error => {
       console.log(error)
     })
-
-
+}).catch(error => {
+      console.log(error)
+    })
 
 
 
